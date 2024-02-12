@@ -1,0 +1,34 @@
+#!/usr/bin/env python3 
+
+import statistics 
+
+
+gene_lengths = []
+GFF_filename = './D_melanogaster.gff'
+feature_type = 'gene'
+
+with open(GFF_filename, 'r') as handle:
+	for line in handle:
+		if line[0]=='#':
+			continue 
+		linearr = line.split('\t')
+		ftype = linearr[2]
+		start = int(linearr[3])
+		end = int(linearr[4])
+		if ftype == feature_type:
+			gene_length = end - start + 1
+			gene_lengths.append(gene_length)
+
+m = statistics.mean(gene_lengths)
+s = statistics.stdev(gene_lengths)
+print('mean is {} and stdev is {}'.format(m, s))
+
+print('gene length is',len(gene_lengths))
+
+
+
+
+
+
+
+
