@@ -1,5 +1,5 @@
 #!/usr/bin/env python3 
-
+#This is a Python script that will calculate the average length of a "gene" in an organism's genome, using the organism's GFF file as input data. 
 import statistics 
 
 
